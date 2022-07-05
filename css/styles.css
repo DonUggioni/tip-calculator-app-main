@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+  --strong_cyan: hsl(172, 67%, 45%);
+  --very_dark_cyan: hsl(183, 100%, 15%);
+  --dark_grayish_cyan: hsl(186, 14%, 43%);
+  --grayish__cyan: hsl(184, 14%, 56%);
+  --light_grayish_cyan: hsl(185, 41%, 84%);
+  --very_light_grayish_cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  height: 100vh;
+  background-color: var(--light_grayish_cyan);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 8.8rem;
+}
+
+input {
+  border: none;
+  background-color: var(--very_light_grayish_cyan);
+  font-size: 2.4rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--grayish__cyan);
+  font-family: inherit;
+  text-align: right;
+  width: 100%;
+}
+
+input::placeholder {
+  text-align: right;
+}
+
+.container {
+  max-width: 92rem;
+  min-width: 37.5rem;
+  padding: 3.2rem;
+  display: flex;
+  gap: 4.8rem;
+  background-color: var(--white);
+}
+
+.bill__amount,
+.num__people {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+}
+
+.parameters__wrapper {
+  display: grid;
+  gap: 4rem;
+  max-width: 38rem;
+}
+
+.parameters__title {
+  font-size: 1.6rem;
+  color: var(--dark_grayish_cyan);
+}
+
+.tip__options {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(3, 1fr);
+}

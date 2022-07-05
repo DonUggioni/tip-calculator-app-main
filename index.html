@@ -11,6 +11,7 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <title>Frontend Mentor | Tip calculator app</title>
 
@@ -31,24 +32,41 @@
       <div class="container">
         <div class="parameters__wrapper">
           <div class="bill__amount">
-            <p>Bill</p>
+            <p class="parameters__title">Bill</p>
             <input type="text" class="input" placeholder="0" />
-            <img src="./images/icon-dollar.svg" />
+            <img src="./images/icon-dollar.svg" class="icon" />
           </div>
           <div class="tip__selectors">
-            <p>Select tip %</p>
-            <button class="tip__selector" data-tip="5">5%</button>
-            <button class="tip__selector" data-tip="10">10%</button>
-            <button class="tip__selector" data-tip="15">15%</button>
-            <button class="tip__selector" data-tip="25">25%</button>
-            <button class="tip__selector" data-tip="50">50%</button>
-            <input type="text" class="custom__tip" placeholder="Custom" />
+            <p class="parameters__title">Select tip %</p>
+            <div class="tip__options">
+              <button class="tip__selector" data-tip="0.05">5%</button>
+              <button class="tip__selector" data-tip="0.10">10%</button>
+              <button class="tip__selector" data-tip="0.15">15%</button>
+              <button class="tip__selector" data-tip="0.25">25%</button>
+              <button class="tip__selector" data-tip="0.50">50%</button>
+              <input
+                type="text"
+                class="custom__tip input"
+                placeholder="Custom"
+              />
+            </div>
           </div>
           <div class="num__people">
-            <p>Number of People</p>
+            <p class="parameters__title">Number of People</p>
             <input type="text" class="input" placeholder="0" />
-            <img src="./images/icon-person.svg" />
+            <img src="./images/icon-person.svg" class="icon" />
           </div>
+        </div>
+        <div class="totals__wrapper">
+          <div class="tip__amount">
+            <p>Tip amount <br /><span>/ person</span></p>
+            <p class="tip__amount">$0.00</p>
+          </div>
+          <div class="total">
+            <p>Total <br /><span>/ person</span></p>
+            <p class="total__amount">$0.00</p>
+          </div>
+          <div class="total"></div>
         </div>
       </div>
     </main>
