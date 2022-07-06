@@ -13,18 +13,9 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
 
-    <title>Frontend Mentor | Tip calculator app</title>
+    <script defer src="js/app.js"></script>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Frontend Mentor | Tip calculator app</title>
   </head>
   <body>
     <main>
@@ -32,12 +23,17 @@
       <div class="container">
         <div class="parameters__wrapper">
           <div class="bill__amount">
-            <p class="parameters__title">Bill</p>
-            <input type="text" class="input" placeholder="0" />
+            <div class="field__description">
+              <p class="parameters__title">Bill</p>
+              <p class="bill__error error__message--hidden">
+                Number must be positive
+              </p>
+            </div>
+            <input type="text" class="bill__input input" placeholder="0" />
             <img src="./images/icon-dollar.svg" class="icon" />
           </div>
           <div class="tip__selectors">
-            <p class="parameters__title">Select tip %</p>
+            <p class="parameters__title select__tip">Select tip %</p>
             <div class="tip__options">
               <button class="tip__selector" data-tip="0.05">5%</button>
               <button class="tip__selector" data-tip="0.10">10%</button>
@@ -52,29 +48,34 @@
             </div>
           </div>
           <div class="num__people">
-            <p class="parameters__title">Number of People</p>
-            <input type="text" class="input" placeholder="0" />
+            <div class="field__description">
+              <p class="parameters__title">Number of People</p>
+              <p class="num__people__error">Can't be zero</p>
+            </div>
+            <input type="text" class="people__input input" placeholder="0" />
             <img src="./images/icon-person.svg" class="icon" />
           </div>
         </div>
-        <div class="totals__wrapper">
-          <div class="tip__amount">
-            <p>Tip amount <br /><span>/ person</span></p>
-            <p class="tip__amount">$0.00</p>
+        <div class="totals__container">
+          <div class="totals__wrapper">
+            <div class="tip__amount">
+              <p>Tip amount <br /><span>/ person</span></p>
+              <p class="total tip__person">$0.00</p>
+            </div>
+            <div class="total__amount">
+              <p>Total <br /><span>/ person</span></p>
+              <p class="total total__person">$0.00</p>
+            </div>
           </div>
-          <div class="total">
-            <p>Total <br /><span>/ person</span></p>
-            <p class="total__amount">$0.00</p>
-          </div>
-          <div class="total"></div>
+          <button class="reset__btn reset__btn--inactive">reset</button>
         </div>
       </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Renan Tiscoski</a>.
+      </div>
     </main>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Renan Tiscoski</a>.
-    </div>
   </body>
 </html>

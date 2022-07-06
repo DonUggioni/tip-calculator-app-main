@@ -8,6 +8,9 @@
   --light_grayish_cyan: hsl(185, 41%, 84%);
   --very_light_grayish_cyan: hsl(189, 41%, 97%);
   --white: hsl(0, 0%, 100%);
+  --error_color: hsla(13, 70%, 61%, 1);
+  --btn_inactive: hsla(183, 78%, 24%, 1);
+  --El_hover: hsla(173, 61%, 77%, 1);
 }
 
 * {
@@ -18,6 +21,7 @@
 
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
@@ -37,10 +41,11 @@ main {
 
 input {
   border: none;
+  border-radius: 5px;
   background-color: var(--very_light_grayish_cyan);
   font-size: 2.4rem;
-  padding: 0.5rem 1.5rem;
-  color: var(--grayish__cyan);
+  color: var(--very_dark_cyan);
+  padding: 0.6rem 1.4rem;
   font-family: inherit;
   text-align: right;
   width: 100%;
@@ -48,15 +53,40 @@ input {
 
 input::placeholder {
   text-align: right;
+  color: var(--grayish__cyan);
+}
+
+input:focus {
+  outline: var(--strong_cyan) solid 2px;
+}
+
+/* ERRORS */
+.bill__error,
+.num__people__error {
+  display: none;
+}
+
+.bill__amount--error input,
+.num__people--error input {
+  outline: var(--error_color) solid 2px;
+}
+
+.bill__amount--error .bill__error,
+.num__people--error .num__people__error {
+  font-size: 1.4rem;
+  color: var(--error_color);
+  display: block;
 }
 
 .container {
   max-width: 92rem;
   min-width: 37.5rem;
   padding: 3.2rem;
+  border-radius: 25px;
   display: flex;
   gap: 4.8rem;
   background-color: var(--white);
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
 }
 
 .bill__amount,
@@ -67,22 +97,132 @@ input::placeholder {
 .icon {
   position: absolute;
   left: 1.5rem;
-  top: 50%;
+  top: 55%;
 }
 
 .parameters__wrapper {
   display: grid;
   gap: 4rem;
+  align-self: center;
   max-width: 38rem;
+}
+
+.field__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .parameters__title {
   font-size: 1.6rem;
   color: var(--dark_grayish_cyan);
+  padding-bottom: 0.5rem;
+}
+
+.select__tip {
+  padding-bottom: 1.5rem;
 }
 
 .tip__options {
   display: grid;
   gap: 1.6rem;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.tip__selector {
+  border: none;
+  border-radius: 5px;
+  font-size: 2.4rem;
+  font-family: inherit;
+  padding: 0.6rem 0;
+  background-color: var(--very_dark_cyan);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.tip__selector:hover {
+  background-color: var(--El_hover);
+  color: var(--very_dark_cyan);
+}
+
+.tip__selector--selected {
+  background-color: var(--very_dark_cyan);
+}
+
+.custom__tip::placeholder {
+  color: var(--very_dark_cyan);
+}
+
+/* TOTALS CONTAINER */
+.totals__container {
+  width: 41.3rem;
+  max-height: 41.7rem;
+  background-color: var(--very_dark_cyan);
+  padding: 4rem;
+  display: grid;
+  align-self: center;
+  gap: 12rem;
+  border-radius: 15px;
+}
+
+.totals__wrapper {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.tip__amount,
+.total__amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tip__amount p,
+.total__amount p {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+.tip__amount span,
+.total__amount span {
+  font-size: 1.3rem;
+  color: var(--grayish__cyan);
+}
+
+.tip__amount .total,
+.total__amount .total {
+  font-size: 4.8rem;
+  color: var(--strong_cyan);
+}
+
+.reset__btn {
+  border: none;
+  border-radius: 5px;
+  font-size: 2rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--very_dark_cyan);
+  background-color: var(--strong_cyan);
+  padding: 1.2rem 0;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.reset__btn:hover {
+  background-color: var(--El_hover);
+}
+
+.reset__btn--inactive {
+  background-color: var(--btn_inactive);
+  pointer-events: none;
+}
+
+/* Attribution */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
