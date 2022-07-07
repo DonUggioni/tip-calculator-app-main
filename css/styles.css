@@ -147,7 +147,7 @@ input:focus {
 }
 
 .tip__selector--selected {
-  background-color: var(--very_dark_cyan);
+  background-color: var(--strong_cyan);
 }
 
 .custom__tip::placeholder {
