@@ -67,4 +67,5 @@ tipEl.addEventListener('click', function (e) {
   )
     e.target.classList.add('tip__selector--selected');
 });
+
 resetBtn.addEventListener('click', reset);
