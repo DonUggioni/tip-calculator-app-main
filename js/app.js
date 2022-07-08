@@ -38,7 +38,10 @@ tipEl.addEventListener('click', function (e) {
   if (tip && bill && people) {
     resetBtn.classList.remove('reset__btn--inactive');
     tipPerPerson.textContent = `$${((bill * tip) / people).toFixed(2)}`;
-    totalPerPerson.textContent = `$${(bill * tip + bill / people).toFixed(2)}`;
+    totalPerPerson.textContent = `$${(
+      bill / people +
+      (bill * tip) / people
+    ).toFixed(2)}`;
   }
 
   // Checks for positive numbers
