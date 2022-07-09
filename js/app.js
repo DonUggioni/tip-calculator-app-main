@@ -63,34 +63,41 @@ const removeTotals = function () {
 const app = function () {
   inputs.forEach((input) => {
     input.addEventListener('keyup', function (e) {
+      // Gets bill value
       if (e.target === billEl) {
         billInput = +input.value;
       }
+      console.log();
 
+      // Select tip when button clicked
       tipBtn = tipSelectors.forEach((selector) => {
         selector.addEventListener('click', function (e) {
           tipInput = +e.target.getAttribute('data-tip');
           customTipEl.value = '';
-          renderTotals();
+          if (peopleInput && billInput && tipInput) {
+            renderTotals();
+            resetBtn.classList.remove('reset__btn--inactive');
+          }
         });
       });
 
-      if (e.target === tipBtn) {
-        tipInput = tipBtn;
-      }
-
+      // Gets custom tip value
       if (e.target === customTipEl) {
         tipInput = +input.value / 100;
       }
 
+      // Gets number of people value
       if (e.target === numPeopleEl) {
         peopleInput = +input.value;
       }
 
-      if (tipInput && billInput && peopleInput)
+      // Display totals after all fields are filled
+      if (tipInput && billInput && peopleInput) {
         resetBtn.classList.remove('reset__btn--inactive');
-      renderTotals();
+        renderTotals();
+      }
 
+      // Resets totals to zero in case the user deletes all numbers from one of the fields
       if (!tipInput || !billInput || !peopleInput) {
         removeTotals();
       }
@@ -111,8 +118,6 @@ const app = function () {
   });
 };
 
-app();
-
 // Adds selected class to tip buttons
 tipEl.addEventListener('click', function (e) {
   removeClass();
@@ -124,3 +129,5 @@ tipEl.addEventListener('click', function (e) {
 });
 
 resetBtn.addEventListener('click', reset);
+
+app();
